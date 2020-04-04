@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "http-server . -p 1337",
-    "build": "npx snowpack && node scripts/build.js && workbox generateSW workbox-config.js"
+    "build": "npx snowpack && node scripts/build.js && workbox generateSW workbox-config.cjs"
   },
   "repository": {
     "type": "git",
