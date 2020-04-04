@@ -21,6 +21,14 @@ async function loadMarkersFromJSON({ map, path, color, fillColor }) {
       }));
     });
 
+    circleMarker.on('touchup', () => {
+      document.dispatchEvent(new CustomEvent('show:page', {
+        detail: {
+          pageId: btoa(item.coords)
+        }
+      }));
+    });
+
     circleMarker.addTo(map);
   });
 }
