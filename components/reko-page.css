@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Muli:wght@300;400&display=swap');
+
+:host {
+  --golden-ratio: 1.61803398875rem;
+  padding: calc(var(--golden-ratio) * 3) var(--golden-ratio);
+  background-color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  font-family: 'Muli', sans-serif;
+}
+
+#close-button {
+  position: absolute;
+  top: var(--golden-ratio);
+  right: var(--golden-ratio);
+}
+
+h1 {
+  font-family: 'Chelsea Market', cursive;
+  font-size: calc(var(--golden-ratio) * 2);
+  text-transform: uppercase;
+  color: var(--reko-colour-darker);
+  margin-top: 0;
+  text-align: center;
+  display: block;
+}

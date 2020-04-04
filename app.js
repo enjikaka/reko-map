@@ -1,4 +1,5 @@
 import './components/lantmateriet-karta.js';
+import './components/reko-page.js';
 
 async function loadMarkersFromJSON({ map, path, color, fillColor }) {
   const response = await fetch(path);
@@ -18,9 +19,13 @@ async function loadMarkersFromJSON({ map, path, color, fillColor }) {
       radius: 10,
     });
 
-    if (text) {
-      circleMarker.bindPopup(text);
-    }
+    circleMarker.on('click', () => {
+      document.dispatchEvent(new CustomEvent('show:page', {
+        detail: {
+          pageId: item.coords.map(String).join('').replace(/\./gi, '')
+        }
+      }));
+    });
 
     circleMarker.addTo(map);
   });
@@ -47,4 +52,11 @@ async function loadMarkers () {
   loadLocalFoodNodes(map);
 }
 
+async function loadPage (event) {
+  const rekoPage = document.querySelector('reko-page');
+
+  rekoPage.setAttribute('page-id', event.detail.pageId);
+}
+
 document.addEventListener('map:ready', () => loadMarkers());
+document.addEventListener('show:page', event => loadPage(event));
