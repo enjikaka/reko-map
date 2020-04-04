@@ -1,0 +1,24 @@
+{
+  "name": "reko-map",
+  "version": "1.0.0",
+  "description": "A map to help find REKO-rings where you can buy local produce.",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enjikaka/reko-map.git"
+  },
+  "keywords": [
+    "reko",
+    "map",
+    "hackthecrisis"
+  ],
+  "author": "Jeremy Karlsson <jeremy@vufuzi.se>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enjikaka/reko-map/issues"
+  },
+  "homepage": "https://github.com/enjikaka/reko-map#readme"
+}
