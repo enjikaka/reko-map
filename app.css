@@ -36,7 +36,6 @@ header figure {
   border-radius: 100%;
   background-color: var(--reko-colour);
   border: 10px solid var(--reko-colour);
-  transition: transform 500ms ease 200ms;
 }
 
 header figure img {
@@ -89,8 +88,4 @@ reko-page:not([page-id]) {
   opacity: 0;
   pointer-events: none;
   transform: translateY(110%);
-}
-
-.loading header figure {
-  transform: translateY(50vh) translateX(-50%) scale(3);
 }

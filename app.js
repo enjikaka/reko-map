@@ -52,10 +52,7 @@ async function loadPage (event) {
   rekoPage.setAttribute('page-id', event.detail.pageId);
 }
 
-document.addEventListener('map:ready', () => {
-  loadMarkers();
-  document.body.classList.remove('loading');
-});
+document.addEventListener('map:ready', () => loadMarkers());
 document.addEventListener('show:page', event => loadPage(event));
 document.addEventListener('DOMContentLoaded', () => {
   if (document.location.hash.includes('/page/')) {
