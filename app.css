@@ -51,7 +51,7 @@ lantmateriet-karta {
   display: grid;
   place-items: center;
   text-align: center;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
   cursor: pointer;
   border-radius: 100%;
   background-color: transparent;
