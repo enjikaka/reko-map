@@ -11,6 +11,7 @@ body {
   margin: 0;
   display: flex;
   flex-flow: column nowrap;
+  background-color: var(--reko-colour);
 }
 
 header {
@@ -20,6 +21,7 @@ header {
   flex-flow: row nowrap;
   align-items: center;
   position: relative;
+  transition: all 500ms ease;
 }
 
 header figure {
@@ -33,6 +35,7 @@ header figure {
   border-radius: 100%;
   background-color: var(--reko-colour);
   border: 10px solid var(--reko-colour);
+  transition: transform 500ms ease 200ms;
 }
 
 header figure img {
@@ -44,6 +47,11 @@ lantmateriet-karta {
   width: 100%;
   height: calc(100vh - var(--header-height));
   flex: 1;
+  transition: opacity 500ms ease 200ms;
+}
+
+.loading lantmateriet-karta {
+  opacity: 0;
 }
 
 #menu-button {
@@ -80,4 +88,8 @@ reko-page:not([page-id]) {
   opacity: 0;
   pointer-events: none;
   transform: translateY(110%);
+}
+
+.loading header figure {
+  transform: translateY(50vh) translateX(-50%) scale(3);
 }
