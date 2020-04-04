@@ -1,5 +1,26 @@
+html,
+body {
+  margin: 0;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+header {
+  background-color: hsl(98, 62%, 29%);
+  height: 50px;
+}
+
+header figure {
+  position: relative;
+  margin: 0 auto;
+  width: 100px;
+  transform: translateY(10%);
+  z-index: 401;
+}
+
 lantmateriet-karta {
   display: block;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  height: calc(100vh - 50px);
+  flex: 1;
 }
