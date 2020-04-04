@@ -8,7 +8,7 @@
     "node": "^13"
   },
   "scripts": {
-    "dev": "http-server . -p 1337",
+    "dev": "http-server . -p 1337 -P",
     "build": "npx snowpack && node scripts/build.js && workbox generateSW workbox-config.cjs"
   },
   "repository": {
