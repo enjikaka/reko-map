@@ -55,7 +55,7 @@ article footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--golden-ratio);
+  margin: var(--golden-ratio) 0;
 }
 
 article footer a {
@@ -65,7 +65,7 @@ article footer a {
   border-radius: calc(var(--local-golden-ratio) / 2);
   padding: calc(var(--local-golden-ratio) / 2) var(--local-golden-ratio);
   text-decoration: none;
-  margin: 0 var(--golden-ratio);
+  margin: 0 calc(var(--local-golden-ratio) / 2);
 }
 
 article footer a[href*="facebook"] {
