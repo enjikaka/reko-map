@@ -2,6 +2,10 @@
 
 Here are some suggestions for a future roadmap to make the REKO-app even more useful for producers and consumers.
 
+## Include REKO-rings in neighbouring countries
+
+The more local the produce the better for the envirment and your health. Scandinavia (normally) doesn't have internal borders and the swedish border should not be the limit in the map. A swede close to the norwegian border needs ot be able to find local produce close ot the border as well.
+
 ## Facebook login
 
 By integrating with Facebook login we could list REKO-ring groups a user belongs to and provide a nice overview for them of upcoming delivery events and what they have ordered.
