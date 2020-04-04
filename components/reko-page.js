@@ -25,6 +25,7 @@ async function RekoPage (props) {
   function closePage() {
     $().removeAttribute('page-id');
     history.pushState(null, null, "/");
+    $(':host').innerHTML = null;
   }
 
   propsChanged(async () => {
