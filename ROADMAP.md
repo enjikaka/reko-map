@@ -1,6 +1,6 @@
 # Roadmap
 
-Here are some suggestions for a future roadmap to make the REKO-app even more useful.
+Here are some suggestions for a future roadmap to make the REKO-app even more useful for producers and consumers.
 
 ## Facebook login
 
