@@ -54,3 +54,12 @@ async function loadPage (event) {
 
 document.addEventListener('map:ready', () => loadMarkers());
 document.addEventListener('show:page', event => loadPage(event));
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.location.pathname !== '/') {
+    loadPage({
+      detail: {
+        pageId: document.location.pathname.split('/')[1]
+      }
+    });
+  }
+});
