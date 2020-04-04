@@ -21,3 +21,5 @@ To aid the discovery and prosperity of REKO-rings I figured this map could be he
   - List REKO-rings and local food nodes to aid discovery
   - List the produce sold in REKO-rings to encourage new customers to paricipate.
   - Present the people behind the local produce, to let the customers get to know them.
+
+#StödDinLokalaLantbrukare 👩‍🌾
