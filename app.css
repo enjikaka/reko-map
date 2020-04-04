@@ -22,9 +22,9 @@ header {
 header figure {
   position: absolute;
   width: 100px;
-  top: -10px;
+  top: 0;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(-12px);
   z-index: 401;
   margin: 0;
   border-radius: 100%;
