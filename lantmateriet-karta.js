@@ -1,29 +1,18 @@
-import { LitElement, css, html } from 'https://unpkg.com/lit-element?module';
+import { Component, registerComponent } from '/web_modules/webact.js';
 
-class LantmaterietKarta extends LitElement {
+class LantmaterietKarta extends Component {
   constructor () {
     super(import.meta.url);
 
     this._loaded = false;
   }
 
-  static get styles () {
-    return css`
-      :host,
-      #map {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-    `;
-  }
-
   get leafletMap () {
     return this.map;
   }
 
-  firstUpdated () {
-    this.map = L.map(this.shadowRoot.querySelector('#map'), {
+  componentDidMount () {
+    this.map = L.map(this.$('#map'), {
       center: [59.9573174, 15.4233244],
       zoom: 6
     });
@@ -41,15 +30,19 @@ class LantmaterietKarta extends LitElement {
   }
 
   render () {
-    return html`
+    return `
       <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
+      <style>
+      :host,
+      #map {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      </style>
       <div id="map"></div>
     `;
   }
 }
 
-const tagName = 'lantmateriet-karta';
-
-customElements.define(tagName, LantmaterietKarta);
-
-export default tagName;
+export default registerComponent(LantmaterietKarta);

@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "webact": "./webact.js"
+  }
+}
