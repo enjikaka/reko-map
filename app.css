@@ -1,6 +1,7 @@
 :root {
   --reko-colour: hsl(99, 54%, 36%);
   --reko-colour-darker: hsl(99, 54%, 32%);
+  --header-height: 55px;
 }
 
 html,
@@ -12,7 +13,7 @@ body {
 
 header {
   background-color: var(--reko-colour);
-  height: 55px;
+  height: var(--header-height);
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -39,7 +40,7 @@ header figure img {
 lantmateriet-karta {
   display: block;
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - var(--header-height));
   flex: 1;
 }
 
