@@ -42,7 +42,7 @@
   <script src="app.js" type="module"></script>
   <script>
     if ('serviceWorker' in navigator && document.location.href.indexOf('localhost') === -1) {
-      navigator.serviceWorker.register('service-worker.js').then(function (reg) {
+      navigator.serviceWorker.register('sw.js').then(function (reg) {
         reg.onupdatefound = function () {
           var installingWorker = reg.installing;
           installingWorker.onstatechange = function () {
