@@ -1,2 +1,6 @@
 node_modules
 generated-page/*.html
+sw.js
+sw.js.map
+workbox-*.js
+workbox-*.js.map
