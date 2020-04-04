@@ -1,8 +1,18 @@
 import { registerFunctionComponent } from '../web_modules/webact.js';
 
 async function fetchPage(pageId) {
-  const response = await fetch(`reko-page/${pageId}.html`);
-  const text = await response.text();
+
+  const [best, fallback] = await Promise.all([
+    fetch(`reko-page/${pageId}.html`),
+    fetch(`generated-reko-page/${pageId}.html`)
+  ]);
+
+  if (best.ok) {
+    const text = await best.text();
+    return text;
+  }
+
+  const text = await fallback.text();
 
   return text;
 }

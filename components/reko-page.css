@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Muli:wght@300;400&display=swap');
 
 :host {
@@ -9,9 +10,11 @@
 }
 
 #close-button {
+  all: unset;
   position: absolute;
   top: var(--golden-ratio);
   right: var(--golden-ratio);
+  cursor: pointer;
 }
 
 h1 {

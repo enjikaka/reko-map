@@ -6,12 +6,6 @@ async function loadMarkersFromJSON({ map, path, color, fillColor }) {
   const items = await response.json();
 
   items.forEach(item => {
-    const text = `
-      <strong>${item.name}</strong>
-      <p>${item.desc}</p>
-      <small>Data från <a href="${item.data.url}" target="_blank">${item.data.name}</a></small>
-    `;
-
     const circleMarker = L.circleMarker(item.coords, {
       color,
       fillColor,
@@ -22,7 +16,7 @@ async function loadMarkersFromJSON({ map, path, color, fillColor }) {
     circleMarker.on('click', () => {
       document.dispatchEvent(new CustomEvent('show:page', {
         detail: {
-          pageId: item.coords.map(String).join('').replace(/\./gi, '')
+          pageId: btoa(item.coords)
         }
       }));
     });

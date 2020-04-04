@@ -36,7 +36,7 @@ async function fetchRekorings () {
   const json = JSON.parse(jsonText);
   const transformedJson = transformGoogleMapPageData(json[1][6][3][12][0][13][0]);
 
-  await fs.writeFile('data/rekorings.json', JSON.stringify(transformedJson));
+  await fs.writeJSON('data/rekorings.json', transformedJson);
 }
 
 async function fetchLocalFoodNodes() {
@@ -45,8 +45,35 @@ async function fetchLocalFoodNodes() {
 
   const transformedJson = tranformLocalFoodNodes(json);
 
-  await fs.writeFile('data/localFoodNodes.json', JSON.stringify(transformedJson));
+  await fs.writeJSON('data/localFoodNodes.json', transformedJson);
 }
 
-fetchRekorings();
-fetchLocalFoodNodes();
+async function generateFallbackPages () {
+  const rekorings = await fs.readJSON('data/rekorings.json');
+  const localFoodNodes = await fs.readJSON('data/localFoodNodes.json');
+
+  [
+    ...rekorings,
+    ...localFoodNodes,
+  ].map(rekoRing => {
+    const placeName = rekoRing.name.toLocaleLowerCase().replace('reko', '').replace('-ring', '');
+    const pageId = new Buffer(rekoRing.coords).toString('base64');
+
+    return fs.writeFile(`generated-reko-page/${pageId}.html`, `
+      <h1>${placeName}</h1>
+      <strong>${rekoRing.name}</strong>
+      <p>${rekoRing.desc}</p>
+      <small>Data från <a href="${rekoRing.data.url}" target="_blank">${rekoRing.data.name}</a></small>
+    `);
+  });
+}
+
+
+
+async function build () {
+  fetchLocalFoodNodes();
+  await fetchRekorings();
+  generateFallbackPages();
+}
+
+build();
