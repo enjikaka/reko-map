@@ -3,8 +3,8 @@ import { registerFunctionComponent } from '../web_modules/webact.js';
 async function fetchPage(pageId) {
 
   const [best, fallback] = await Promise.all([
-    fetch(`reko-page/${pageId}.html`),
-    fetch(`generated-reko-page/${pageId}.html`)
+    fetch(`created-page/${pageId}.html`),
+    fetch(`generated-page/${pageId}.html`)
   ]);
 
   if (best.ok) {

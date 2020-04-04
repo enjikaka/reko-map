@@ -57,10 +57,9 @@ async function generateFallbackPages () {
     ...localFoodNodes,
   ].map(rekoRing => {
     const placeName = rekoRing.name.toLocaleLowerCase().replace('reko', '').replace('-ring', '');
-    const coordsText = rekoRing.coords.join(',');
-    const pageId = new Buffer(coordsText).toString('base64');
+    const pageId = Buffer.from(rekoRing.coords.join(',')).toString('base64');
 
-    return fs.writeFile(`generated-reko-page/${pageId}.html`, `
+    return fs.writeFile(`generated-page/${pageId}.html`, `
       <h1>${placeName}</h1>
       <strong>${rekoRing.name}</strong>
       <p>${rekoRing.desc}</p>
@@ -72,9 +71,13 @@ async function generateFallbackPages () {
 
 
 async function build () {
-  fetchLocalFoodNodes();
-  await fetchRekorings();
-  generateFallbackPages();
+  try {
+    fetchLocalFoodNodes();
+    await fetchRekorings();
+    generateFallbackPages();
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 build();
