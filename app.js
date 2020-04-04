@@ -58,10 +58,10 @@ document.addEventListener('map:ready', () => {
 });
 document.addEventListener('show:page', event => loadPage(event));
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.location.pathname !== '/') {
+  if (document.location.hash !== '') {
     loadPage({
       detail: {
-        pageId: document.location.pathname.split('/')[1]
+        pageId: document.location.hash.split('/')[1]
       }
     });
   }

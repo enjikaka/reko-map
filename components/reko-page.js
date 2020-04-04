@@ -22,6 +22,11 @@ async function RekoPage (props) {
 
   await useCSS();
 
+  function closePage() {
+    $().removeAttribute('page-id');
+    history.pushState(null, null, "/");
+  }
+
   propsChanged(async () => {
     const { pageId } = props;
 
@@ -38,13 +43,13 @@ async function RekoPage (props) {
       ${pageHTML}
     `;
 
-    $('#close-button').addEventListener('click', () => history.back());
+    $('#close-button').addEventListener('click', () => closePage());
 
-    history.pushState({ page: 1 }, null, "/" + pageId);
+    history.pushState(null, null, "/#!/" + pageId);
 
     window.onpopstate = event => {
       if (event.state === null) {
-        $().removeAttribute('page-id');
+        closePage();
       }
     };
   });
