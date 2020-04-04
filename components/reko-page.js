@@ -2,19 +2,19 @@ import { registerFunctionComponent } from '../web_modules/webact.js';
 
 async function fetchPage(pageId) {
 
-  const [best, fallback] = await Promise.all([
+  const [producers, base] = await Promise.all([
     fetch(`created-page/${pageId}.html`),
     fetch(`generated-page/${pageId}.html`)
   ]);
 
-  if (best.ok) {
-    const text = await best.text();
-    return text;
+  let baseText = await base.text();
+  const producersText = await producers.text();
+
+  if (producers.ok) {
+    baseText = baseText.replace('<p></p>', producersText);
   }
 
-  const text = await fallback.text();
-
-  return text;
+  return baseText;
 }
 
 async function RekoPage (props) {

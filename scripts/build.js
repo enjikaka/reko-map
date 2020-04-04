@@ -72,6 +72,7 @@ async function generateFallbackPages () {
       <strong>${rekoRing.name}</strong>
       ${rekoRing.desc ? `<p>${rekoRing.desc}</p>`: ''}
       ${fbGroupId ? `<p><a href="https://www.facebook.com/groups/${fbGroupId}" target="_blank">Facebook-grupp</a></p>` : ''}
+      <p></p>
       <small>Data från <a href="${rekoRing.data.url}" target="_blank">${rekoRing.data.name}</a></small>
     `);
   });
