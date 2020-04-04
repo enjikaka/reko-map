@@ -11,17 +11,29 @@ body {
 }
 
 header {
-  background-color: var(--reko-colour-darker);
-  height: 50px;
+  background-color: var(--reko-colour);
+  height: 55px;
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
+  position: relative;
 }
 
 header figure {
-  margin: 0 auto;
+  position: absolute;
   width: 100px;
-  transform: translateY(10%);
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 401;
+  margin: 0;
+  border-radius: 100%;
+  background-color: var(--reko-colour);
+  border: 10px solid var(--reko-colour);
+}
+
+header figure img {
+  display: block;
 }
 
 lantmateriet-karta {
@@ -34,8 +46,18 @@ lantmateriet-karta {
 #menu-button {
   all: unset;
   color: white;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
-  padding: 0 1rem;
+  text-align: center;
+  margin: 0 1rem;
+  cursor: pointer;
+  border-radius: 100%;
+  background-color: transparent;
+  transition: background-color 150ms ease;
+}
+
+#menu-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
