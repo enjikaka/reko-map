@@ -1,5 +1,4 @@
 import './lantmateriet-karta.js';
-import './icon-button.js';
 
 function parsePageData (pageData) {
   return pageData.map(rawRing => ({
