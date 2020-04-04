@@ -11,14 +11,26 @@ function parsePageData (pageData) {
 function init () {
   const rekoRings = parsePageData(jsonPageData[1][6][3][12][0][13][0]);
 
-  const map = document.querySelector('lantmateriet-karta');
-
+  const { leafletMap: map } = document.querySelector('lantmateriet-karta');
 
   rekoRings.forEach(rekoRing => {
-    map.addMarker(rekoRing.coords, `
+    const text = `
       <strong>${rekoRing.name}</strong>
       <p>${rekoRing.desc}</p>
-    `);
+    `;
+
+    const circleMarker = L.circleMarker(rekoRing.coords, {
+      color: 'hsl(98, 62%, 29%)',
+      fillColor: '#4E8F2B',
+      fillOpacity: 0.5,
+      radius: 10,
+    });
+
+    if (text) {
+      circleMarker.bindPopup(text);
+    }
+
+    circleMarker.addTo(map);
   });
 }
 
