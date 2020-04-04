@@ -59,10 +59,19 @@ async function generateFallbackPages () {
     const placeName = rekoRing.name.toLocaleLowerCase().replace('reko', '').replace('-ring', '');
     const pageId = Buffer.from(rekoRing.coords.join(',')).toString('base64');
 
+    let fbGroupId;
+
+    if (rekoRing.desc && rekoRing.desc.includes('facebook.com')) {
+      fbGroupId = rekoRing.desc.split('facebook.com')[1];
+      fbGroupId = fbGroupId.split('/')[1] === 'groups' ? fbGroupId.split('/')[2] : fbGroupId.split('/')[1];
+      rekoRing.desc = rekoRing.desc.replace(/(https?:\/\/)(\s)?(www\.)?(\s?)(\w+\.)*([\w\-\s]+\/)*([\w-]+)\/?/gi, '').trim();
+    }
+
     return fs.writeFile(`generated-page/${pageId}.html`, `
       <h1>${placeName}</h1>
       <strong>${rekoRing.name}</strong>
       <p>${rekoRing.desc}</p>
+      ${fbGroupId ? `<a href="https://www.facebook.com/groups/${fbGroupId}" target="_blank">Facebook-grupp</a>` : ''}
       <small>Data från <a href="${rekoRing.data.url}" target="_blank">${rekoRing.data.name}</a></small>
     `);
   });
