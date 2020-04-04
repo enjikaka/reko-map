@@ -16,19 +16,8 @@ class LantmaterietKarta extends LitElement {
     `;
   }
 
-  addMarker (coords, text) {
-    const circle = L.circle(coords, {
-      color: 'darkgreen',
-      fillColor: '#bada55',
-      fillOpacity: 0.5,
-      radius: 500,
-    });
-
-    if (text) {
-      circle.bindPopup(text);
-    }
-
-    circle.addTo(this.map);
+  get leafletMap () {
+    return this.map;
   }
 
   firstUpdated () {
