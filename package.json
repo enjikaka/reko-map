@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "A map to help find REKO-rings where you can buy local produce.",
   "main": "build.js",
+  "engines": {
+    "node": "^13"
+  },
   "scripts": {
     "dev": "http-server . -p 1337",
     "build": "node build.js"
