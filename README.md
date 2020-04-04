@@ -3,7 +3,9 @@
 A web app map for desktop and mobile helping potional customers to find REKO-rings where they can buy local produce to aid small scale businesses in the Corona crisis, and after!
 
 This is a compilation of data from:
+
 - https://hushallningssallskapet.se/forskning-utveckling/reko/narmsta-reko-ring/
+- https://localfoodnodes.org/en
 - https://opendata.lantmateriet.se/
 
 ## Challenge
@@ -12,7 +14,7 @@ This kinda fit under all three challanges. Eating healthy local produce over com
 
 Making the REKO-rings easier to find and listing the produce available to buy could help the local businesses get their produce sold.
 
-REKO is an important community that needs to be saved. Some REKO-rings already see people not picking up deliveries because they are sick or are in a risk group, reducing their income.
+REKO is an important community that needs to survive. Some REKO-rings already see people not picking up deliveries because they are sick or are in a risk group, reducing their income.
 
 ## Digital Solution
 
