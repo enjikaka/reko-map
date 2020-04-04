@@ -1,17 +1,10 @@
 import './lantmateriet-karta.js';
 
-function parsePageData (pageData) {
-  return pageData.map(rawRing => ({
-    coords: rawRing[1][0][0],
-    name: rawRing[5][0][1][0],
-    desc: rawRing[5][1] ? rawRing[5][1][1][0] : null
-  }));
-}
-
-function init () {
-  const rekoRings = parsePageData(jsonPageData[1][6][3][12][0][13][0]);
-
+async function init () {
   const { leafletMap: map } = document.querySelector('lantmateriet-karta');
+
+  const response = await fetch('rekorings.json');
+  const rekoRings = await response.json();
 
   rekoRings.forEach(rekoRing => {
     const text = `

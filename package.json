@@ -1,10 +1,12 @@
 {
   "name": "reko-map",
+  "type": "module",
   "version": "1.0.0",
   "description": "A map to help find REKO-rings where you can buy local produce.",
   "main": "build.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "http-server . -p 1337",
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/enjikaka/reko-map/issues"
   },
-  "homepage": "https://github.com/enjikaka/reko-map#readme"
+  "homepage": "https://github.com/enjikaka/reko-map#readme",
+  "devDependencies": {
+    "fs-extra": "^9.0.0",
+    "http-server": "^0.12.1",
+    "make-fetch-happen": "^8.0.4",
+    "unescape-js": "^1.1.4"
+  }
 }
