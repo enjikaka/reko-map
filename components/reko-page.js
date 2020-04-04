@@ -46,7 +46,7 @@ async function RekoPage (props) {
 
     $('#close-button').addEventListener('click', () => closePage());
 
-    history.pushState(null, null, "/" + pageId);
+    history.pushState(null, null, "/page/" + pageId);
 
     window.onpopstate = event => {
       if (event.state === null) {
