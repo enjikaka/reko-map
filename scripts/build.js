@@ -74,11 +74,11 @@ async function generateFallbackPages () {
       rekoRing.desc = rekoRing.desc.replace(/(https?:\/\/)(\s)?(www\.)?(\s?)(\w+\.)*([\w\-\s]+\/)*([\w-]+)\/?/gi, '').trim();
     }
 
-    const facebookDescription = fbGroupId ? await getFacebookGroupDescription(fbGroupId) : undefined;
+    // const facebookDescription = fbGroupId ? await getFacebookGroupDescription(fbGroupId) : undefined;
+    // ${facebookDescription ? `<p>${facebookDescription}</p>` : ''}
 
     return fs.writeFile(`generated-page/${pageId}.html`, `
       <h1>${placeName}</h1>
-      ${facebookDescription ? `<p>${facebookDescription}</p>` : ''}
       <strong>${rekoRing.name}</strong>
       ${rekoRing.desc ? `<p>${rekoRing.desc}</p>`: ''}
       ${fbGroupId ? `<p><a href="https://www.facebook.com/groups/${fbGroupId}" target="_blank">Facebook-grupp</a></p>` : ''}
