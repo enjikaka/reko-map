@@ -57,7 +57,8 @@ async function generateFallbackPages () {
     ...localFoodNodes,
   ].map(rekoRing => {
     const placeName = rekoRing.name.toLocaleLowerCase().replace('reko', '').replace('-ring', '');
-    const pageId = new Buffer(rekoRing.coords).toString('base64');
+    const coordsText = rekoRing.coords.join(',');
+    const pageId = new Buffer(coordsText).toString('base64');
 
     return fs.writeFile(`generated-reko-page/${pageId}.html`, `
       <h1>${placeName}</h1>
