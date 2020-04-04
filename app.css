@@ -1,3 +1,8 @@
+:root {
+  --reko-colour: hsl(99, 54%, 36%);
+  --reko-colour-darker: hsl(99, 54%, 32%);
+}
+
 html,
 body {
   margin: 0;
@@ -6,12 +11,13 @@ body {
 }
 
 header {
-  background-color: hsl(98, 62%, 29%);
+  background-color: var(--reko-colour-darker);
   height: 50px;
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 header figure {
-  position: relative;
   margin: 0 auto;
   width: 100px;
   transform: translateY(10%);
@@ -23,4 +29,13 @@ lantmateriet-karta {
   width: 100%;
   height: calc(100vh - 50px);
   flex: 1;
+}
+
+#menu-button {
+  all: unset;
+  color: white;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  padding: 0 1rem;
 }

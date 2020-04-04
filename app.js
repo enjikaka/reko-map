@@ -1,4 +1,5 @@
 import './lantmateriet-karta.js';
+import './icon-button.js';
 
 function parsePageData (pageData) {
   return pageData.map(rawRing => ({
@@ -20,8 +21,8 @@ function init () {
     `;
 
     const circleMarker = L.circleMarker(rekoRing.coords, {
-      color: 'hsl(98, 62%, 29%)',
-      fillColor: '#4E8F2B',
+      color: 'var(--reko-colour-darker)',
+      fillColor: 'var(--reko-colour)',
       fillOpacity: 0.5,
       radius: 10,
     });
