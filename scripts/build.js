@@ -48,6 +48,13 @@ async function fetchLocalFoodNodes() {
   await fs.writeJSON('data/localFoodNodes.json', transformedJson);
 }
 
+async function getFacebookGroupDescription (fbGroupId) {
+  const response = await fetch('https://facebook.com/groups/' + fbGroupId);
+  const text = await response.text();
+
+  return text.split('role="heading"')[3] ? text.split('role="heading"')[3].split('<span>')[1].split('</span>')[0].trim() : undefined;
+}
+
 async function generateFallbackPages () {
   const rekorings = await fs.readJSON('data/rekorings.json');
   const localFoodNodes = await fs.readJSON('data/localFoodNodes.json');
@@ -55,7 +62,7 @@ async function generateFallbackPages () {
   [
     ...rekorings,
     ...localFoodNodes,
-  ].map(rekoRing => {
+  ].map(async rekoRing => {
     const placeName = rekoRing.name.toLocaleLowerCase().replace('reko', '').replace('-ring', '');
     const pageId = Buffer.from(rekoRing.coords.join(',')).toString('base64');
 
@@ -67,8 +74,11 @@ async function generateFallbackPages () {
       rekoRing.desc = rekoRing.desc.replace(/(https?:\/\/)(\s)?(www\.)?(\s?)(\w+\.)*([\w\-\s]+\/)*([\w-]+)\/?/gi, '').trim();
     }
 
+    const facebookDescription = fbGroupId ? await getFacebookGroupDescription(fbGroupId) : undefined;
+
     return fs.writeFile(`generated-page/${pageId}.html`, `
       <h1>${placeName}</h1>
+      ${facebookDescription ? `<p>${facebookDescription}</p>` : ''}
       <strong>${rekoRing.name}</strong>
       ${rekoRing.desc ? `<p>${rekoRing.desc}</p>`: ''}
       ${fbGroupId ? `<p><a href="https://www.facebook.com/groups/${fbGroupId}" target="_blank">Facebook-grupp</a></p>` : ''}
