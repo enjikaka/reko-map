@@ -8,7 +8,7 @@ async function fetchPage(pageId) {
 }
 
 async function RekoPage (props) {
-  const { $, html, useCSS, propsChanged } = this;
+  const { $, useCSS, propsChanged } = this;
 
   await useCSS();
 
