@@ -1,0 +1,21 @@
+{
+  "short_name": "REKO",
+  "name": "REKO",
+  "icons": [
+    {
+      "src": "img\/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image\/png"
+    },
+    {
+      "src": "img\/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image\/png"
+    }
+  ],
+  "theme_color": "#4d8d2a",
+  "background_color": "#4d8d2a",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "index.html?utm_source=homescreen"
+}
