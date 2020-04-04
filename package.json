@@ -31,7 +31,8 @@
     "http-server": "^0.12.1",
     "make-fetch-happen": "^8.0.4",
     "snowpack": "^1.6.0",
-    "unescape-js": "^1.1.4"
+    "unescape-js": "^1.1.4",
+    "workbox-cli": "^5.1.2"
   },
   "dependencies": {
     "webact": "^0.1.16"
