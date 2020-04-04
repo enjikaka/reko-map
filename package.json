@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "http-server . -p 1337",
-    "build": "npx snowpack && node build.js"
+    "build": "npx snowpack && node scripts/build.js"
   },
   "repository": {
     "type": "git",
