@@ -1,6 +1,8 @@
 :root {
   --reko-colour: hsl(99, 54%, 36%);
   --reko-colour-darker: hsl(99, 54%, 32%);
+  --local-food-node-colour: hsl(14, 89%, 32%);
+  --local-food-node-colour-darker: hsl(14, 89%, 28%);
   --header-height: 55px;
 }
 

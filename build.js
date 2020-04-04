@@ -6,7 +6,23 @@ function transformGoogleMapPageData(pageData) {
   return pageData.map(rawRing => ({
     coords: rawRing[1] ? rawRing[1][0][0] : null,
     name: rawRing[5][0][1][0],
-    desc: rawRing[5][1] ? rawRing[5][1][1][0] : null
+    desc: rawRing[5][1] ? rawRing[5][1][1][0] : null,
+    data: {
+      name: 'Hushållningssällskapet',
+      url: 'https://hushallningssallskapet.se/'
+    }
+  }));
+}
+
+function tranformLocalFoodNodes (json) {
+  return json.nodes.map(node => ({
+    coords: [node.location.lat, node.location.lng],
+    name: node.name,
+    desc: `${node.info}\n${node.email}`,
+    data: {
+      name: 'Local Food Nodes',
+      url: 'https://localfoodnodes.org/sv'
+    }
   }));
 }
 
@@ -23,4 +39,14 @@ async function fetchRekorings () {
   await fs.writeFile('rekorings.json', JSON.stringify(transformedJson));
 }
 
+async function fetchLocalFoodNodes() {
+  const response = await fetch('https://localfoodnodes.org/api/nodes');
+  const json = await response.json();
+
+  const transformedJson = tranformLocalFoodNodes(json);
+
+  await fs.writeFile('localFoodNodes.json', JSON.stringify(transformedJson));
+}
+
 fetchRekorings();
+fetchLocalFoodNodes();

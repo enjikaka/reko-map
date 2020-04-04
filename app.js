@@ -1,20 +1,19 @@
 import './lantmateriet-karta.js';
 
-async function init () {
-  const { leafletMap: map } = document.querySelector('lantmateriet-karta');
+async function loadMarkersFromJSON({ map, path, color, fillColor }) {
+  const response = await fetch(path);
+  const items = await response.json();
 
-  const response = await fetch('rekorings.json');
-  const rekoRings = await response.json();
-
-  rekoRings.forEach(rekoRing => {
+  items.forEach(item => {
     const text = `
-      <strong>${rekoRing.name}</strong>
-      <p>${rekoRing.desc}</p>
+      <strong>${item.name}</strong>
+      <p>${item.desc}</p>
+      <small>Data från <a href="${item.data.url}" target="_blank">${item.data.name}</a></small>
     `;
 
-    const circleMarker = L.circleMarker(rekoRing.coords, {
-      color: 'var(--reko-colour-darker)',
-      fillColor: 'var(--reko-colour)',
+    const circleMarker = L.circleMarker(item.coords, {
+      color,
+      fillColor,
       fillOpacity: 0.5,
       radius: 10,
     });
@@ -27,4 +26,25 @@ async function init () {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => init());Array
+const loadLocalFoodNodes = map => loadMarkersFromJSON({
+  map,
+  path: 'localFoodNodes.json',
+  color: 'var(--local-food-node-colour-darker)',
+  fillColor: 'var(--local-food-node-colour)'
+});
+
+const loadRekoRings = map => loadMarkersFromJSON({
+  map,
+  path: 'rekorings.json',
+  color: 'var(--reko-colour-darker)',
+  fillColor: 'var(--reko-colour)'
+});
+
+async function loadMarkers () {
+  const { leafletMap: map } = document.querySelector('lantmateriet-karta');
+
+  loadRekoRings(map);
+  loadLocalFoodNodes(map);
+}
+
+document.addEventListener('map:ready', () => loadMarkers());

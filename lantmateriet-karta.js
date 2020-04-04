@@ -3,6 +3,8 @@ import { LitElement, css, html } from 'https://unpkg.com/lit-element?module';
 class LantmaterietKarta extends LitElement {
   constructor () {
     super(import.meta.url);
+
+    this._loaded = false;
   }
 
   static get styles () {
@@ -34,6 +36,8 @@ class LantmaterietKarta extends LitElement {
     });
 
     this.map.addLayer(lantmateriet);
+
+    document.dispatchEvent(new CustomEvent('map:ready'));
   }
 
   render () {
