@@ -1,4 +1,4 @@
-import { Component, registerComponent } from '/web_modules/webact.js';
+import { Component, registerComponent } from '../web_modules/webact.js';
 
 class LantmaterietKarta extends Component {
   constructor () {

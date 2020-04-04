@@ -1,4 +1,4 @@
-import './lantmateriet-karta.js';
+import './components/lantmateriet-karta.js';
 
 async function loadMarkersFromJSON({ map, path, color, fillColor }) {
   const response = await fetch(path);
@@ -28,14 +28,14 @@ async function loadMarkersFromJSON({ map, path, color, fillColor }) {
 
 const loadLocalFoodNodes = map => loadMarkersFromJSON({
   map,
-  path: 'localFoodNodes.json',
+  path: 'data/localFoodNodes.json',
   color: 'var(--local-food-node-colour-darker)',
   fillColor: 'var(--local-food-node-colour)'
 });
 
 const loadRekoRings = map => loadMarkersFromJSON({
   map,
-  path: 'rekorings.json',
+  path: 'data/rekorings.json',
   color: 'var(--reko-colour-darker)',
   fillColor: 'var(--reko-colour)'
 });

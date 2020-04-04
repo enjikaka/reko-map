@@ -36,7 +36,7 @@ async function fetchRekorings () {
   const json = JSON.parse(jsonText);
   const transformedJson = transformGoogleMapPageData(json[1][6][3][12][0][13][0]);
 
-  await fs.writeFile('rekorings.json', JSON.stringify(transformedJson));
+  await fs.writeFile('data/rekorings.json', JSON.stringify(transformedJson));
 }
 
 async function fetchLocalFoodNodes() {
@@ -45,7 +45,7 @@ async function fetchLocalFoodNodes() {
 
   const transformedJson = tranformLocalFoodNodes(json);
 
-  await fs.writeFile('localFoodNodes.json', JSON.stringify(transformedJson));
+  await fs.writeFile('data/localFoodNodes.json', JSON.stringify(transformedJson));
 }
 
 fetchRekorings();
